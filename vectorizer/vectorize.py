@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.7
 
+
 from conllu import parse_tree
 
 from choices import Choices
@@ -8,7 +9,7 @@ from vectorizer import Vectorizer
 
 def vectorize(args) -> Choices:
     with open(args.treebank, 'r') as f:
-        treebank = parse_tree(f)
+        treebank = parse_tree(f.read())
     return Vectorizer().treebank_to_choices(treebank)
 
 

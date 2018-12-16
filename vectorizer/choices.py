@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.7
 
+
 from pyrsistent import m
 
 
@@ -22,6 +23,10 @@ class Choices(object):
         return Choices(self.data.update(data))
 
 
+    def merge(self, other: 'Choices') -> 'Choices':
+        return self.update(other.data)
+
+
     def __str__(self):
         return str(self.data)
 
@@ -30,7 +35,7 @@ class Choices(object):
         return repr(self.data)[5:-1]
 
 
-    def __get__(self, key: str):
+    def __getitem__(self, key: str):
         return self.data[key]
 
 
